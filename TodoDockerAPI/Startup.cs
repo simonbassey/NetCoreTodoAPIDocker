@@ -50,6 +50,7 @@ namespace TodoDockerAPI
 
             app.UseCors("AllowAll");
             ServiceResolver.Register(app.ApplicationServices);
+            TodoDbInitializer.Seed(app.ApplicationServices.GetRequiredService<TodoDbContext>()).ConfigureAwait(false);
         }
     }
 }
